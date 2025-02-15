@@ -1,0 +1,12 @@
+/* *{
+  margin:0 ;
+  padding: 0;
+} */
+img{
+  width:4%;
+  border-radius: 50%;
+}
+input{
+  width: 50%;
+  margin: auto;
+}

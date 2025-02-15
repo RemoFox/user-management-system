@@ -1,0 +1,11 @@
+.content{
+  width: 50%;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+  padding:20px;
+
+}
+
+
+  input{
+   margin-top: 10px;
+  }

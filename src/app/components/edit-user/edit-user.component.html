@@ -1,0 +1,38 @@
+<div class="container">
+  <h2 class="text-center text-warning fw-bold mt-2 mb-3">Edit user data </h2>
+
+  <form [formGroup]="editUserForm" (ngSubmit)="saveChanges()" class="m-auto w-50">
+    <label>name:</label>
+    <input type="text" formControlName="name" class="form-control" appStringOnly/>
+    <div *ngIf="editUserForm.controls['name'].errors && editUserForm.controls['name'].touched">
+      <small *ngIf="editUserForm.controls['name'].errors['stringOnly']" class="text-danger" >letters only</small>
+      <small *ngIf="editUserForm.controls['name'].errors['required']  " class="text-danger" >user name required</small>
+      <small *ngIf="editUserForm.controls['name'].errors['minlength'] " class="text-danger" >min length error</small>
+     </div>
+    <label>email:</label>
+    <input type="email" formControlName="email" class="form-control" />
+    <div *ngIf="editUserForm.controls['email'].errors && editUserForm.controls['email'].touched">
+      <small *ngIf="editUserForm.controls['email'].errors['required']  " class="text-danger" >email required</small>
+      <small *ngIf="editUserForm.controls['email'].errors['email'] " class="text-danger" >email type <span>&#64;</span>
+      </small>
+     </div>
+
+    <label>phone number :</label>
+    <input type="text" formControlName="number" class="form-control" />
+    <div *ngIf="editUserForm.controls['number'].errors && editUserForm.controls['number'].touched">
+      <small *ngIf="editUserForm.controls['number'].errors['required']  " class="text-danger" >number required</small>
+     </div>
+    <label>age:</label>
+    <input type="number" formControlName="age" class="form-control" />
+    <div *ngIf="editUserForm.controls['age'].errors && editUserForm.controls['age'].touched">
+      <small *ngIf="editUserForm.controls['age'].errors['required']  " class="text-danger" >age required</small>
+     </div>
+    <label>image:</label>
+    <input type="file" (change)="onFileSelected($event)" class="form-control" />
+    <div *ngIf="imagePreview">
+      <img [src]="imagePreview" alt="User Image" class="img-preview" width="50"/>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100 mt-3">save</button>
+  </form>
+</div>

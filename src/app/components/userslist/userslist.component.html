@@ -1,0 +1,73 @@
+<div class="container ">
+  <input type="search" placeholder="search..."
+   class="form-control flex-nowrap shadow w-50 m-auto mt-3"[(ngModel)]="searchtext">
+<h2 class="text-center text-warning fw-bold mt-5">Data from local storge</h2>
+
+<table class="table table-striped table-hover ">
+  <thead >
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Age</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+
+    </tr>
+  </thead>
+  <tbody  >
+    <tr  *ngFor="let user of usersl">
+      <td scope="row" class="fw-bold">{{user.id}}</td>
+       <td>
+         <img *ngIf="user.image" [src]="user.image" width="50" height="50" alt="im " />
+
+      </td>
+      <td>{{user.name}}</td>
+      <td>{{user.number}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.age}}</td>
+
+      <td><button class="rounded-2 m-1"  (click)="editUserl(user.id)">
+        <i class="fa-solid fa-pen-to-square"  ></i></button></td>
+      <td><button class="rounded-2 m-1" (click)="deleteUserl(user.id)">
+        <i class="fa-solid fa-trash text-danger" ></i></button></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2 class="text-center text-warning fw-bold mt-5">Data from API</h2>
+<table class="table table-striped table-hover ">
+  <thead >
+    <tr >
+      <th scope="col">Id</th>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Age</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr   *ngFor="let user of users |search:searchtext ">
+      <td scope="row"class="fw-bold">{{user.id}}</td>
+       <td><img style="width: 50px;" class="img-fluid" src="assets/images/remon.jpg"></td>
+      <td>{{user.firstName}} {{user.lastName}}</td>
+      <td>{{user.phone}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.age}}</td>
+     <td><button class="rounded-2 m-1" >
+      <i class="fa-solid fa-pen-to-square" (click)="editapi(user.id)"></i></button></td>
+      <td><button class="rounded-2 m-1" >
+        <i class="fa-solid fa-trash text-danger" (click)="deleteUser(user.id)"></i></button></td>
+    </tr>
+
+  </tbody>
+
+</table>
+</div>

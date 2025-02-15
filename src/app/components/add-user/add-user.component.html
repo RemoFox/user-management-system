@@ -1,0 +1,32 @@
+<h2 class="text-center text-warning p-2 mt-5 fw-bold"><i class="fa-solid fa-user-plus pe-2"></i> Add user</h2>
+<form [formGroup]="addUserForm" (ngSubmit)="addUser()" class="w-50 m-auto ">
+  <input type="text" class="form-control"  placeholder="user name" formControlName="name" appStringOnly/>
+  <div *ngIf="addUserForm.controls['name'].errors && addUserForm.controls['name'].touched">
+   <small *ngIf="addUserForm.controls['name'].errors['stringOnly']" class="text-danger" >letters only</small>
+   <small *ngIf="addUserForm.controls['name'].errors['required']  " class="text-danger" >user name required</small>
+   <small *ngIf="addUserForm.controls['name'].errors['minlength'] " class="text-danger" >min length error</small>
+  </div>
+
+  <input type="email" class="form-control" placeholder=" email" formControlName="email" />
+   <div *ngIf="addUserForm.controls['email'].errors && addUserForm.controls['email'].touched">
+    <small *ngIf="addUserForm.controls['email'].errors['required']  " class="text-danger" >email required</small>
+    <small *ngIf="addUserForm.controls['email'].errors['email'] " class="text-danger" >email type <span>&#64;</span>
+    </small>
+   </div>
+
+  <input type="number" class="form-control" placeholder="phone number" formControlName="number" />
+  <div *ngIf="addUserForm.controls['number'].errors && addUserForm.controls['number'].touched">
+    <small *ngIf="addUserForm.controls['number'].errors['required']  " class="text-danger" >number required</small>
+   </div>
+
+  <input type="number" class="form-control" placeholder="age" formControlName="age" />
+  <div *ngIf="addUserForm.controls['age'].errors && addUserForm.controls['age'].touched">
+    <small *ngIf="addUserForm.controls['age'].errors['required']  " class="text-danger" >age required</small>
+   </div>
+
+   <input id="image" type="file" (change)="onFileSelected($event)" accept="image/*" />
+  <img *ngIf="imagePreview" [src]="imagePreview" width="100" height="100" alt="Preview" />
+  <br>
+  <button type="submit" [disabled]="addUserForm.invalid" class="btn btn-primary rounded-2 w-100 mt-3">submit </button>
+</form>
+

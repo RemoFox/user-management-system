@@ -1,0 +1,51 @@
+
+
+<button class="btn btn-primary m-3 " data-bs-toggle="collapse"
+ data-bs-target="#sidebar">☰ Open Sidebar</button>
+
+
+<div class="collapse d-lg-block position-fixed top-0 start-0 vh-100 bg-dark text-white p-3"
+id="sidebar" style="width:227px;">
+
+    <button class="btn btn-danger d-lg-none w-100 mb-3" data-bs-toggle="collapse"
+    data-bs-target="#sidebar">❌ Close</button>
+
+    <h4 class="mb-3 text-center m-auto"><i class="fa-solid fa-layer-group pe-2"></i> UMS</h4>
+    <ul class="nav flex-column ">
+      <li class=" text-center">
+        <img src="assets/images/remon.jpg" class="image mt-3 mb-3" alt="">
+      </li>
+        <li class="nav-item ">
+          <a routerLink="/dashboard/home" class="nav-link text-white active"
+          (click)="setActive('home')" [ngClass]="{ 'active': selectedItem === 'home' }"            >
+            <i class="fa-solid fa-house pe-2"></i> Home</a></li>
+        <li class="nav-item">
+          <a routerLink="/dashboard/user-list" class="nav-link text-white"
+          (click)="setActive('list')" [ngClass]="{ 'active': selectedItem === 'list' }">
+            <i class="fa-solid fa-folder-open  pe-2"></i> users list</a> </li>
+        <li class="nav-item">
+          <a routerLink="/dashboard/add-user" class="nav-link text-white"
+          (click)="setActive('add')" [ngClass]="{ 'active': selectedItem === 'add' }">
+            <i class="fa-solid fa-user-plus pe-2"></i>add user</a> </li>
+        <li class="nav-item">
+          <a routerLink="/dashboard/add-user-api" class="nav-link text-white"
+          (click)="setActive('add-user-api')" [ngClass]="{ 'active': selectedItem === 'add-user-api' }">
+            <i class="fa-solid fa-user-plus pe-2"></i>add-user-api</a> </li>
+        <li class="nav-item">
+          <a routerLink="" (click)="logout()" class="nav-link text-white"
+          (click)="setActive('logout')" [ngClass]="{ 'active': selectedItem === 'logout' }">
+            <i class="fa-solid fa-right-from-bracket pe-2"></i> logout</a> </li>
+    </ul>
+
+    <div class="footer mt-5 text-center">
+      <p>01203601776</p>
+      <p class="" >remonhany933<span>&#64;</span>gmail.com</p>
+
+
+
+    </div>
+</div>
+
+
+
+
